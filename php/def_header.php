@@ -1,3 +1,19 @@
+<?php
+    // To prevent unauthenticated users to browse
+    session_start();
+    if (!isset($_SESSION["id_user"])) {
+        header("Location: ../index.php");
+        exit();
+    }
+    // Get session if there is one
+    if (isset($_SESSION["id_user"])) {
+        $mysqli = require __DIR__ . "/utils/dbconn.php";
+        $sql = "SELECT * FROM users WHERE id_user = {$_SESSION["id_user"]}";
+        $result = $mysqli->query($sql);
+        $user = $result->fetch_assoc();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +33,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <a href="./logout.php" class="btn btn-danger">Log out</a>
+                    <a href="./utils/logout_helper.php" class="btn btn-danger">Log Out</a>
                 </div>
             </div>
         </nav>
