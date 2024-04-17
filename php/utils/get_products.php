@@ -14,18 +14,18 @@
         $stmt->execute();
 
         $result = $stmt->get_result();
-        if (!$result) {
+        if(!$result) {
             die("An error occurred while reaching the products: " . $mysqli->error);
         }
 
         $products = [];
-        while ($row = $result->fetch_assoc()) {
-            $products[] = [
+        while($row = $result->fetch_assoc()) {
+            array_push($products, [
                 "id" => $row["prod_id"],
                 "name" => $row["prod_name"],
                 "image" => $row["img_url"],
                 "price" => "$" . number_format($row["price"], 2)
-            ];
+            ]);
         }
         $result->free();
         $stmt->close();

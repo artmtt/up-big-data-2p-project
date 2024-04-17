@@ -1,6 +1,6 @@
 <?php
     require __DIR__ . "/utils/get_products.php";
-    $products = getProductsByCategory("popular product");
+    $products = getProductsByCategory("popular products");
 
     $title = "Trending Products";
     include("def_header.php");
