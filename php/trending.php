@@ -4,7 +4,7 @@
 
     $mysqli = require __DIR__ . "/utils/dbconn.php";
     $sql = "
-        SELECT id_prod, products.name as prod_name, img_url, price
+        SELECT products.id_prod as p_id, products.name as prod_name, img_url, price
         FROM products
         JOIN prod_cat ON products.id_prod = prod_cat.id_prod
         JOIN categories ON prod_cat.id_cat = categories.id_cat
@@ -18,7 +18,7 @@
 
     while($row = $result->fetch_assoc()) {
         $products[] = [
-            "id" => $row["id_prod"],
+            "id" => $row["p_id"],
             "name" => $row["prod_name"],
             "image" => $row["img_url"],
             "price" => "$" . number_format($row["price"], 2)
