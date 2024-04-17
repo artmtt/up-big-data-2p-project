@@ -4,7 +4,7 @@
 
     $mysqli = require __DIR__ . "/utils/dbconn.php";
     $sql = "
-        SELECT products.id_prod as p_id, products.name as prod_name, img_url, price
+        SELECT products.id_prod as prod_id, products.name as prod_name, img_url, price
         FROM products
         JOIN prod_cat ON products.id_prod = prod_cat.id_prod
         JOIN categories ON prod_cat.id_cat = categories.id_cat
@@ -18,47 +18,20 @@
 
     while($row = $result->fetch_assoc()) {
         $products[] = [
-            "id" => $row["p_id"],
+            "id" => $row["prod_id"],
             "name" => $row["prod_name"],
             "image" => $row["img_url"],
             "price" => "$" . number_format($row["price"], 2)
         ];
     }    
     $result->free();
-
-    // $products = [
-    //     [
-    //         "id" => 1,
-    //         "name" => "Product Name 1",
-    //         "image" => "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fget.pxhere.com%2Fphoto%2Fbook-read-word-grungy-wood-leather-vintage-antique-old-reading-box-page-material-weathered-education-pages-worn-literature-study-library-books-text-stacked-manuscript-words-school-age-history-learning-classic-document-information-cover-used-wisdom-knowledge-plywood-distressed-hardcover-publication-1341439.jpg&f=1&nofb=1&ipt=53155165cb20a3c88a23285751d2a945a4e3fd38d31cdbc3a6f6fb905156748e&ipo=images",
-    //         "price" => "$19.99",
-    //     ],
-    //     [
-    //         "id" => 2,
-    //         "name" => "Product Name 2",
-    //         "image" => "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftesseraguild.com%2Fwp-content%2Fuploads%2F2018%2F06%2FHobbit.jpg&f=1&nofb=1&ipt=dc112a6599741ccd91305c6a0ed4bbd4c2dcaaa04721848775ff86e2fd9a9350&ipo=images",
-    //         "price" => "$19.99",
-    //     ],
-    //     [
-    //         "id" => 3,
-    //         "name" => "Product Name 3",
-    //         "image" => "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftesseraguild.com%2Fwp-content%2Fuploads%2F2018%2F06%2FHobbit.jpg&f=1&nofb=1&ipt=dc112a6599741ccd91305c6a0ed4bbd4c2dcaaa04721848775ff86e2fd9a9350&ipo=images",
-    //         "price" => "$19.99",
-    //     ],
-    //     [
-    //         "id" => 4,
-    //         "name" => "Product Name 4",
-    //         "image" => "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftesseraguild.com%2Fwp-content%2Fuploads%2F2018%2F06%2FHobbit.jpg&f=1&nofb=1&ipt=dc112a6599741ccd91305c6a0ed4bbd4c2dcaaa04721848775ff86e2fd9a9350&ipo=images",
-    //         "price" => "$19.99",
-    //     ],
-    // ];
 ?>
 
     <section class="container my-5">
         <h2 class="mb-4">Trending Products</h2>
         <h5 class="fw-normal fs-5 mb-5">
             Browse our trending products for the latest must-have items that everyone is talking about.
-            From innovative gadgets to stylish essentials, we’ve got the top picks that combine quality and popularity.
+            From innovative gadgets to stylish essentials, we've got the top picks that combine quality and popularity.
             Stay ahead of the curve with these in-demand products and elevate your lifestyle with what's trending now.
         </h5>
         <div class="row g-4">
