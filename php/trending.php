@@ -1,30 +1,9 @@
 <?php
+    require __DIR__ . "/utils/get_products.php";
+    $products = getProductsByCategory("popular product");
+
     $title = "Trending Products";
     include("def_header.php");
-
-    $mysqli = require __DIR__ . "/utils/dbconn.php";
-    $sql = "
-        SELECT products.id_prod as prod_id, products.name as prod_name, img_url, price
-        FROM products
-        JOIN prod_cat ON products.id_prod = prod_cat.id_prod
-        JOIN categories ON prod_cat.id_cat = categories.id_cat
-        WHERE categories.name = 'popular products'
-    ";
-    $result = $mysqli->query($sql);
-
-    if(!$result) {
-        die("An error ocurred while reaching the products: " . $mysqli->error);
-    }
-
-    while($row = $result->fetch_assoc()) {
-        $products[] = [
-            "id" => $row["prod_id"],
-            "name" => $row["prod_name"],
-            "image" => $row["img_url"],
-            "price" => "$" . number_format($row["price"], 2)
-        ];
-    }    
-    $result->free();
 ?>
 
     <section class="container my-5">

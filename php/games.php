@@ -1,33 +1,9 @@
 <?php
+    require __DIR__ . "/utils/get_products.php";
+    $products = getProductsByCategory("games");
+
     $title = "Games";
     include("def_header.php");
-
-    $products = [
-        [
-            "id" => 1,
-            "name" => "Product Name 1",
-            "image" => "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fget.pxhere.com%2Fphoto%2Fbook-read-word-grungy-wood-leather-vintage-antique-old-reading-box-page-material-weathered-education-pages-worn-literature-study-library-books-text-stacked-manuscript-words-school-age-history-learning-classic-document-information-cover-used-wisdom-knowledge-plywood-distressed-hardcover-publication-1341439.jpg&f=1&nofb=1&ipt=53155165cb20a3c88a23285751d2a945a4e3fd38d31cdbc3a6f6fb905156748e&ipo=images",
-            "price" => "$19.99",
-        ],
-        [
-            "id" => 2,
-            "name" => "Product Name 2",
-            "image" => "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftesseraguild.com%2Fwp-content%2Fuploads%2F2018%2F06%2FHobbit.jpg&f=1&nofb=1&ipt=dc112a6599741ccd91305c6a0ed4bbd4c2dcaaa04721848775ff86e2fd9a9350&ipo=images",
-            "price" => "$19.99",
-        ],
-        [
-            "id" => 3,
-            "name" => "Product Name 3",
-            "image" => "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftesseraguild.com%2Fwp-content%2Fuploads%2F2018%2F06%2FHobbit.jpg&f=1&nofb=1&ipt=dc112a6599741ccd91305c6a0ed4bbd4c2dcaaa04721848775ff86e2fd9a9350&ipo=images",
-            "price" => "$19.99",
-        ],
-        [
-            "id" => 4,
-            "name" => "Product Name 4",
-            "image" => "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftesseraguild.com%2Fwp-content%2Fuploads%2F2018%2F06%2FHobbit.jpg&f=1&nofb=1&ipt=dc112a6599741ccd91305c6a0ed4bbd4c2dcaaa04721848775ff86e2fd9a9350&ipo=images",
-            "price" => "$19.99",
-        ],
-    ];
 ?>
 
     <section class="container my-5">
