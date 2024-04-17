@@ -5,7 +5,7 @@
     $sql = "
         SELECT id_prod as prod_id, name as prod_name, img_url, price
         FROM products
-        WHERE prod_id = ?
+        WHERE id_prod = ?
     ";
 
     $stmt = $mysqli->prepare($sql);
